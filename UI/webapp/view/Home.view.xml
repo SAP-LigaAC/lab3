@@ -1,0 +1,10 @@
+<mvc:View controllerName="sap.ui.starter.controller.Home" 
+	xmlns:html="http://www.w3.org/1999/xhtml" 
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
+	xmlns="sap.m">
+	<Page title="{i18n>appTitle}" titleAlignment="Center">
+		<content>
+			<Label text="Hello SAPUI5" />
+		</content>
+	</Page>
+</mvc:View>
