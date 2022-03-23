@@ -1,0 +1,11 @@
+{
+	"authenticationMethod": "route",
+	"routes": [
+    {
+      "source": "^/core(.*)$",
+      "target": "$1",
+      "destination": "bookings",
+      "authenticationType": "xsuaa"
+    }
+  ]
+}

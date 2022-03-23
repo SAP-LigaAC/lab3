@@ -1,0 +1,9 @@
+{
+  "jwt": {
+    "options": {
+      "session": false
+    },
+    "strategy": "JWT",
+    "scope": "read"
+  }
+}
