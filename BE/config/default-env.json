@@ -31,20 +31,12 @@
         "binding_guid": "a0a059fe-5521-4a52-b1c3-0203b89c2a52",
         "binding_name": null,
         "credentials": {
-          "clientid": "sb-dev-bookings-lab1!t70335",
-          "xsappname": "dev-bookings-lab1!t70335",
-          "clientsecret": "bCFT8BZv7Jak8Aqjax0ucwnzMuM=",
-          "url": "https://c59e1674trial.authentication.us10.hana.ondemand.com",
-          "uaadomain": "authentication.us10.hana.ondemand.com",
-          "verificationkey": "-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAr+rLQAetC8hoIHsFL0rGwVgjo+C3DA0hrWc6jC9Pzyw5KxU8uLgUxndPJ8KfmIMQH8BLw25qpa1OkSorv+6JsFlS2OGn81VIg8lFWSxvsRlWvDp3vNDk9hPL0GFN4vgFpbVCw3YqzXmYoCmvxPT0EF+kKZeAXw6+k2OOznQsjst0sR+67NJzX2XC5wvVxj+m672ZECL6Y/zJO5vSnrMLpPwLKCPJoYpprCouNIIBkkM7fPOvdCGDDFNS5z/osC9tTDyT6vI+b/2SqdrcpHjLPncVj1jv19RYFkO43RP6EJUGNVtdHyBXshDqK0acqUrYJYkWtQAIOg0z8tm1Bh7spQIDAQAB-----END PUBLIC KEY-----",
-          "apiurl": "https://api.authentication.us10.hana.ondemand.com",
-          "identityzone": "c59e1674trial",
-          "identityzoneid": "e70c477f-b611-42d3-8514-bb2aeae0d7fc",
-          "tenantid": "e70c477f-b611-42d3-8514-bb2aeae0d7fc",
-          "zoneid": "e70c477f-b611-42d3-8514-bb2aeae0d7fc"
-        },
-        "syslog_drain_url": null,
-        "volume_mounts": []
+          "clientid": "",
+          "xsappname": "",
+          "clientsecret": "",
+          "url": "",
+          "verificationkey": "",
+        }
       }
     ]
   }
