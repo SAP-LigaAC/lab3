@@ -109,7 +109,15 @@ resources:
             description: "Bookings app read role"
           - name: $XSAPPNAME.write
             description: "Bookings app write role"
+          - name: $XSAPPNAME.delete
+            description: "Bookings app delete role"
         role-templates:
+          - name: Manager
+            description: "Manager role template"
+            scope-references:
+              - $XSAPPNAME.read
+              - $XSAPPNAME.write
+              - $XSAPPNAME.delete
           - name: Admin
             description: "Admin role template"
             scope-references:
@@ -120,6 +128,10 @@ resources:
             scope-references:
               - $XSAPPNAME.read
         role-collections:
+          - name: ${org}-${space}-Manager
+            description: "Authorizes a Manager user"
+            role-template-references:
+              - $XSAPPNAME.Manager
           - name: ${org}-${space}-Admin
             description: "Authorizes an Admin user"
             role-template-references:

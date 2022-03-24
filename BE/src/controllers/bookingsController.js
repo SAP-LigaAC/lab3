@@ -1,7 +1,8 @@
 import {
     createBooking,
     readBooking,
-    readBookings
+    readBookings,
+    deleteBooking
 } from "../services/bookingsServices";
 
 import {
@@ -37,8 +38,22 @@ export const addBooking = async (req, res, next) => {
     }
 };
 
+export const removeBooking = async (req, res, next) => {
+    log.info(`received delete booking request`);
+    try {
+        const id = req.params.id;
+        await deleteBooking(id);
+        log.info (`deletion for booking with id ${id} was done succesfullly`);
+        res.sendStatus(StatusCodes.NO_CONTENT);
+
+    } catch (error) {
+        log.info(error.message);
+        next(error);
+    }
+};
+
 export const viewBooking = async (req, res, next) => {
-    log.info(`received view bookings request`);
+    log.info(`received view booking request`);
     try {
         const id = req.params.id;
         const booking = await readBooking(id);

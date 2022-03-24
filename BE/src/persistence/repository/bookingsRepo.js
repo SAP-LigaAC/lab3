@@ -31,6 +31,7 @@ export const getBooking = async (id) => {
 	A1."BookingDate",
 	A1."FlightDate",
 	A1."FlightDestination",
+  A1."Passenger_ID",
 	A2."FirstName",
 	A2."LastName",
 	A2."EmailAddress",
@@ -40,6 +41,16 @@ export const getBooking = async (id) => {
   WHERE A1."ID" = ${id}`);
 
   return booking[0];
+};
+
+export const removeBooking = async (id) => {
+  log.info(`deleting booking with id= ${id}`);
+  // ON DELETE CASCADE NOT SUPPORTED ON TRIAL DB => search for boking to get the PASSENGER_ID
+  const booking = await getBooking(id);
+
+  await processSQL(`DELETE FROM "REPLACE_SCHEMA"."Booking" where "ID" = ${id}`);
+
+  return await processSQL(`DELETE FROM "REPLACE_SCHEMA"."Passenger" where "ID" = ${booking.Passenger_ID}`);
 };
 
 export const getBookings = async () => {
