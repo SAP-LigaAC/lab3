@@ -29,13 +29,26 @@ If the `git clone` command fails, then you will have to:
   - decompress the zip File
 
 
-### 3. App usage
-LAB3 application is an end-to-end example of a cloud multi target application.
+### 3. App modules and resources
+LAB3 application is an example of a cloud Multi Target Application.
 The UI is built using SAP UI5 framework.
 The BE is built using Express JS web server and provides secured REST APIs which can be consumed by the end users and also by the UI.
 The persistence layer is provided by SAP HANA Cloud HANA DB.
 
-A multi-target application (MTA) is comprised of multiple software pieces (“modules”) which all share a common lifecycle for development and deployment. These modules can be written in different technologies and deployed to different targets respectively, but they all serve (different aspects of) a particular purpose for the application’s users.
+App new modules introduced in LAB3:
+- `Approuter` - single entry point to a cloud application. Its main capabilities include:
+  - dispatching the requests to the configured destination (business services),
+  - the app authentication using SAP XSUAA
+  - authorizations checks
+  - CSRF protection
+  - CORS support
+    - Cross-origin resource sharing (CORS) permits Web pages from other domains to make HTTP requests to your application domain, where normally such requests would automatically be refused by the Web browser’s security policy. Cross-origin resource sharing(CORS) is a mechanism that allows restricted resources on a webpage to be requested from another domain (/protocol/port) outside the domain (/protocol/port) from which the first resource was served. CORS configuration enables you to define details to control access to your application resource from other Web browsers
+
+<br><br>
+<img width="451" alt="image" src="https://blogs.sap.com/wp-content/uploads/2018/12/Untitled-16.png">
+<br><br>
+
+### 4. App usage
 
 #### Create tables for the data model entitites -if they don't exist
 Connect to Cockpit and use HANA DB Explorer to create the 'Passenger' and 'Booking" tables, by opening an SQL Console and running the `CREATE TABLE` commands from `sql-scripts\createTable.sql`.
@@ -73,11 +86,15 @@ Assign a role to your user.
 - https://www.npmjs.com/package/body-parser
 - https://www.npmjs.com/package/cf-nodejs-logging-support
 - https://www.npmjs.com/package/http-status-codes
+- https://www.npmjs.com/package/@sap/approuter
 - https://www.npmjs.com/package/@sap/hana-client
 - https://www.npmjs.com/package/@sap/xsenv
 - https://www.npmjs.com/package/@sap/xssec
+-
 
 ### Documentation
+
+https://blogs.sap.com/2020/04/03/sap-application-router/
 
 
 
