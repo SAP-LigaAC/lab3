@@ -45,8 +45,14 @@ App new modules introduced in LAB3:
     - Cross-origin resource sharing (CORS) permits Web pages from other domains to make HTTP requests to your application domain, where normally such requests would automatically be refused by the Web browser’s security policy. Cross-origin resource sharing(CORS) is a mechanism that allows restricted resources on a webpage to be requested from another domain (/protocol/port) outside the domain (/protocol/port) from which the first resource was served. CORS configuration enables you to define details to control access to your application resource from other Web browsers
 
 <br><br>
+<img width="451" alt="image" src="https://blogs.sap.com/wp-content/uploads/2020/09/sec360.png">
+<br><br>
+
+<br><br>
 <img width="451" alt="image" src="https://blogs.sap.com/wp-content/uploads/2018/12/Untitled-16.png">
 <br><br>
+
+
 
 ### 4. App usage
 
