@@ -4,6 +4,7 @@ version: 1.0.0
 description: "flight-bookings REST example app"
 parameters:
   enable-parallel-deployments: true
+  deploy_mode: html5-repo
 
 build-parameters:
   before-all:
@@ -95,6 +96,37 @@ modules:
         properties:
           srv-url: ${default-url}
 
+
+  # --------------------- UI app MODULE ------------------------
+  - name: flight-bookings-ui
+    # ------------------------------------------------------------
+    type: html5
+    path: UI
+    parameters:
+        disk-quota: 256M
+        memory: 256M
+        host: ${org}-${space}-flight-bookings-ui.${default-domain}
+        buildpacks:
+          - staticfile_buildpack
+    build-parameters:
+        builder: custom
+        commands:
+          - npm install
+          - npm run build
+        supported-platforms: []
+        build-result: dist
+  - name: flight-bookings-ui-deployer
+    type: com.sap.html5.application-content
+    path: UI/deployer
+    requires:
+      - name: flight-bookings-ui-host
+    build-parameters:
+      requires:
+        - name: flight-bookings-ui
+          artifacts:
+            - './*'
+          target-path: resources/flight-bookings-ui
+
 resources:
   - name: bookings-uaa
     type: org.cloudfoundry.managed-service
@@ -140,3 +172,9 @@ resources:
     parameters:
       service: hana
       service-plan: hdi-shared
+
+  - name: flight-bookings-ui-host
+    parameters:
+      service-plan: app-host
+      service: html5-apps-repo
+    type: org.cloudfoundry.managed-service

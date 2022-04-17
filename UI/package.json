@@ -1,23 +1,15 @@
 {
-    "name": "lab3-ui",
+    "name": "flight-bookings-ui",
     "version": "1.0.0",
     "engines": {
         "node": "10.x"
     },
     "scripts": {
         "start": "ui5 serve --config=ui5.yaml --open index.html",
-        "build": "ui5 build --clean-dest --include-task=generateManifestBundle",
-        "lint:code": "eslint --fix webapp",
-        "lint:checkstyle": "eslint --fix webapp --format checkstyle -o target/eslint.xml"
+        "build": "ui5 build --clean-dest --include-task=generateManifestBundle"
     },
     "devDependencies": {
-        "@sap/di.code-validation.js": "^1.1.9",
-        "@sap/eslint-plugin-fiori": "0.1.0-20181012112227",
         "@ui5/cli": "^2.12.0",
-        "eslint": "^7.12.1",
-        "eslint-plugin-json": "^2.1.2",
-        "eslint-plugin-prettier": "^3.1.4",
-        "prettier": "^2.1.2",
         "ui5-middleware-livereload": "^0.5.4",
         "ui5-middleware-simpleproxy": "^0.7.2"
     },

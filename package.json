@@ -12,7 +12,8 @@
     "build": "mbt build -t mta_archives --mode verbose",
     "deploy-cloud": "npm run build && cf deploy mta_archives/flight-bookings_1.0.0.mtar",
     "deploy-cloud-approuter": "npm run build && cf deploy mta_archives/flight-bookings_1.0.0.mtar -m flight-bookings-approuter",
-    "deploy-cloud-be": "npm run build && cf deploy mta_archives/flight-bookings_1.0.0.mtar -m flight-bookings-be"
+    "deploy-cloud-be": "npm run build && cf deploy mta_archives/flight-bookings_1.0.0.mtar -m flight-bookings-be",
+    "deploy-cloud-ui": "npm run build && cf deploy mta_archives/flight-bookings_1.0.0.mtar -m flight-bookings-ui-deployer"
   },
   "dependencies": {
     "@sap/hana-client": "^2.12.13",

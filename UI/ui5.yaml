@@ -1,6 +1,6 @@
 specVersion: '2.6'
 metadata:
-  name: lab3-ui
+  name: flight-bookings-ui
 type: application
 resources:
   configuration:
@@ -8,7 +8,7 @@ resources:
       webapp: webapp
 framework:
   name: SAPUI5
-  version: 1.85.0
+  version: 1.97.0
 server:
   customMiddleware:
     - name: ui5-middleware-livereload
@@ -17,14 +17,8 @@ server:
         path: webapp
         port: 35729
     - name: ui5-middleware-simpleproxy
-      mountPath: /odata
+      mountPath: /core
       afterMiddleware: compression
       configuration:
-        baseUri: http://localhost:4005
-        removeETag: true
-    - name: ui5-middleware-simpleproxy
-      mountPath: /rest
-      afterMiddleware: compression
-      configuration:
-        baseUri: http://localhost:4006
+        baseUri: http://localhost:4001
         removeETag: true
