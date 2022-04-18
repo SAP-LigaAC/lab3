@@ -6,7 +6,11 @@
         "provider": null,
         "plan": "hdi-shared",
         "name": "booking-hana",
-        "tags": ["hana", "database", "relational"],
+        "tags": [
+          "hana",
+          "database",
+          "relational"
+        ],
         "credentials": {
           "host": "",
           "port": "443",
@@ -26,7 +30,9 @@
         "provider": null,
         "plan": "application",
         "name": "bookings-uaa",
-        "tags": ["xsuaa"],
+        "tags": [
+          "xsuaa"
+        ],
         "instance_name": "bookings-uaa",
         "binding_guid": "a0a059fe-5521-4a52-b1c3-0203b89c2a52",
         "binding_name": null,
@@ -35,7 +41,7 @@
           "xsappname": "",
           "clientsecret": "",
           "url": "",
-          "verificationkey": "",
+          "verificationkey": ""
         }
       }
     ]
