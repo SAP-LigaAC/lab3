@@ -1,0 +1,9 @@
+applications:
+  - name: ui5-starter
+    host: ui5-starter
+    buildpack: staticfile_buildpack
+    disk_quota: 256M
+    timeout: 180
+    memory: 512M
+    instances: 1
+    path: src
