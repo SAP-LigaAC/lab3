@@ -15,7 +15,7 @@ sap.ui.define([
 			const oBookingsPage = this.byId("idBookingsPage");
 			oBookingsPage.setBusy(true);
 
-			this.read("/core/api/bookings")
+			this.read("https://booking-darius.cfapps.us10.hana.ondemand.com/bookings")
 				.then(oResponse => {
 					this.oBookingsModel.setProperty("/bookings", oResponse);
 				})
@@ -32,7 +32,7 @@ sap.ui.define([
 			const oTableItem = oEvent.getParameters().listItem;
 			const oItemBindingContext = oTableItem.getBindingContext("bookingsModel");
 			const oBooking = oItemBindingContext.getObject();
-			this.getRouter().navTo("booking", { bookingId: oBooking.ID });
+			this.getRouter().navTo("booking", { bookingId: oBooking.id });
 		},
 
 		onPressBookNow: function (oEvent) {

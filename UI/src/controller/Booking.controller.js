@@ -19,7 +19,7 @@ sap.ui.define([
 
             const sBookingId = oEvent.getParameter("arguments").bookingId;
 
-            this.read(`/core/api/bookings/${sBookingId}`)
+            this.read(`https://booking-darius.cfapps.us10.hana.ondemand.com/bookings/${sBookingId}`)
                 .then(oResponse => {
                     this.oBookingModel.setProperty("/booking", oResponse);
                 })
@@ -36,8 +36,6 @@ sap.ui.define([
             this.oBookingModel.setJSON(`{
                 "booking" : {
                     "ID": null,
-                    "BookingStatus": null,
-                    "BookingDate": null,
                     "FlightDate": null,
                     "FlightDestination": null,
                     "FirstName": null,

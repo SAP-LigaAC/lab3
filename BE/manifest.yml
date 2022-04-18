@@ -1,0 +1,6 @@
+applications:
+    - name: booking-darius
+      memory: 512M
+      disk_quota: 512M
+      services:
+      - booking-logs

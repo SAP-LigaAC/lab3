@@ -11,7 +11,7 @@
                     <Label text="{i18n>idLabel}"/>
                     <Input required="true" type="Number" value="{newBookingModel>/booking/id}"/>
                     <Label text="{i18n>flightDateLabel}"/>
-                    <DateTimePicker required="true" value="{newBookingModel>/booking/flightDate}" minDate="{newBookingModel>/minFlightDate}"/>
+                    <DateTimePicker required="true" displayFormat="short" value="{newBookingModel>/booking/flightDate}" minDate="{newBookingModel>/minFlightDate}"/>
                     <Label text="{i18n>flightDestinationLabel}"/>
                     <Input required="true" value="{newBookingModel>/booking/flightDestination}"/>
                     <core:Title text="{i18n>passengerSectionTitle}"/>

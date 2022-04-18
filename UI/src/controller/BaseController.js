@@ -87,11 +87,11 @@ sap.ui.define([
 		},
 
 		post: function (url, body) {
-			return this.AjaxClient.makeAJAXCall("POST", url, body);
+			return this.AjaxClient.post(url, body);
 		},
 
 		delete: function (url, body) {
-			return this.AjaxClient.makeAJAXCall("DELETE", url, body);
+			return this.AjaxClient.makeAJAXCall(url, body);
 		}
 	});
 

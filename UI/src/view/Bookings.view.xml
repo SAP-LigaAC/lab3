@@ -23,12 +23,6 @@
 									<Column width="10em">
 										<Text text="{i18n>idTableColumn}" />
 									</Column>
-									<Column width="10em">
-										<Text text="{i18n>bookingStatusTableColumn}" />
-									</Column>
-									<Column>
-										<Text text="{i18n>bookingDateTableColumn}" />
-									</Column>
 									<Column>
 										<Text text="{i18n>flightDateTableColumn}" />
 									</Column>
@@ -45,13 +39,11 @@
 								<items>
 									<ColumnListItem vAlign="Middle" type="Navigation">
 										<cells>
-											<Text text="{bookingsModel>ID}" />
-											<Text text="{bookingsModel>BookingStatus}" />
-											<Text text="{parts: [{path: 'bookingsModel>BookingDate'}, {value: 'MMM d, yyyy'}], formatter: '.Formatter.formatDateTime'}" />
-											<Text text="{parts: [{path: 'bookingsModel>FlightDate'}, {value: 'MMM d, yyyy'}], formatter: '.Formatter.formatDateTime'}" />
-											<Text text="{bookingsModel>FlightDestination}" />
-											<Text text="{bookingsModel>FirstName}" />
-											<Text text="{bookingsModel>LastName}" />
+											<Text text="{bookingsModel>id}" />
+											<Text text="{parts: [{path: 'bookingsModel>flightDate'}, {value: 'MMM d, yyyy'}], formatter: '.Formatter.formatDateTime'}" />
+											<Text text="{bookingsModel>flightDestination}" />
+											<Text text="{bookingsModel>firstName}" />
+											<Text text="{bookingsModel>lastName}" />
 										</cells>
 									</ColumnListItem>
 								</items>

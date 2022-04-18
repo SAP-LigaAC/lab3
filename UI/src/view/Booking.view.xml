@@ -9,24 +9,20 @@
                 <f:content>
                     <core:Title text="{i18n>bookingSectionTitle}"/>
                     <Label text="{i18n>idLabel}"/>
-                    <Text text="{bookingModel>/booking/ID}"/>
-                    <Label text="{i18n>bookingStatusLabel}"/>
-                    <Text text="{bookingModel>/booking/BookingStatus}"/>
-                    <Label text="{i18n>bookingDateLabel}"/>
-                    <Text text="{bookingModel>/booking/BookingDate}"/>
+                    <Text text="{bookingModel>/booking/id}"/>
                     <Label text="{i18n>flightDateLabel}"/>
-                    <Text text="{bookingModel>/booking/FlightDate}"/>
+                    <Text text="{bookingModel>/booking/flightDate}"/>
                     <Label text="{i18n>flightDestinationLabel}"/>
-                    <Text text="{bookingModel>/booking/FlightDestination}"/>
+                    <Text text="{bookingModel>/booking/flightDestination}"/>
                     <core:Title text="{i18n>passengerSectionTitle}"/>
                     <Label text="{i18n>firstNameLabel}"/>
-                    <Text text="{bookingModel>/booking/FirstName}"/>
+                    <Text text="{bookingModel>/booking/firstName}"/>
                     <Label text="{i18n>lastNameLabel}"/>
-                    <Text text="{bookingModel>/booking/LastName}"/>
+                    <Text text="{bookingModel>/booking/lastName}"/>
                     <Label text="{i18n>emailAddressLabel}"/>
-                    <Text text="{bookingModel>/booking/EmailAddress}"/>
+                    <Text text="{bookingModel>/booking/emailAddress}"/>
                     <Label text="{i18n>phoneNumberLabel}"/>
-                    <Text text="{bookingModel>/booking/PhoneNumber}"/>
+                    <Text text="{bookingModel>/booking/phoneNumber}"/>
                 </f:content>
             </f:SimpleForm>
         </content>

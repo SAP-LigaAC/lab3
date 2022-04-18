@@ -4,12 +4,15 @@ sap.ui.define(
     "use strict";
 
     return {
-      get: function (sUrl, queryParams) {
+      get: function (sUrl, token, data) {
         return new Promise(function (resolve, reject) {
           $.ajax({
             url: sUrl,
             type: "GET",
-            data: queryParams,
+            data: data,
+            headers: {
+              authorization: token
+            },
             success: function (data) {
               resolve(data);
             },
@@ -20,31 +23,56 @@ sap.ui.define(
         });
       },
 
-      makeAJAXCall: function (sMethodType, sUrl, oBody) {
+      post: function (sUrl, data, token) {
         return new Promise(function (resolve, reject) {
-          var tokenUrl = "/";
           $.ajax({
-            url: tokenUrl,
-            type: "GET",
-            beforeSend: function (jqXHR) {
-              jqXHR.setRequestHeader("X-CSRF-Token", "Fetch");
+            url: sUrl,
+            type: "POST",
+            data: JSON.stringify(data),
+            headers: {
+              authorization: token
             },
-            success: function (data, textStatus, jqXHR) {
-              jQuery.ajax({
-                url: sUrl,
-                type: sMethodType,
-                contentType: "application/json; charset=utf-8",
-                data: JSON.stringify(oBody),
-                beforeSend: function (jqXHR1) {
-                  jqXHR1.setRequestHeader("X-CSRF-Token", jqXHR.getResponseHeader("X-CSRF-Token"));
-                },
-                success: function (data) {
-                  resolve(data);
-                },
-                error: function (xhr, status) {
-                  reject(xhr, status);
-                }
-              });
+            contentType: "application/json;charset=utf-8",
+            success: function (data) {
+              resolve(data);
+            },
+            error: function (xhr, status) {
+              reject(xhr, status);
+            }
+          });
+        });
+      },
+      put: function (sUrl, data, token) {
+        return new Promise(function (resolve, reject) {
+          $.ajax({
+            url: sUrl,
+            type: "PUT",
+            data: JSON.stringify(data),
+            headers: {
+              authorization: token
+            },
+            contentType: "application/json;charset=utf-8",
+            success: function (data) {
+              resolve(data);
+            },
+            error: function (xhr, status) {
+              reject(xhr, status);
+            }
+          });
+        });
+      },
+      delete: function (sUrl, data, token) {
+        return new Promise(function (resolve, reject) {
+          $.ajax({
+            url: sUrl,
+            type: "DELETE",
+            data: JSON.stringify(data),
+            headers: {
+              authorization: token
+            },
+            contentType: "application/json;charset=utf-8",
+            success: function (data) {
+              resolve(data);
             },
             error: function (xhr, status) {
               reject(xhr, status);

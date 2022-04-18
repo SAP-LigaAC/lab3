@@ -11,9 +11,6 @@
     "start": "node --experimental-specifier-resolution=node src/server.js"
   },
   "dependencies": {
-    "@sap/hana-client": "^2.12.13",
-    "@sap/xsenv": "~3.1.1",
-    "@sap/xssec": "^3.2.13",
     "body-parser": "~1.19.0",
     "cf-nodejs-logging-support": "~6.10.0",
     "config": "~3.3.6",

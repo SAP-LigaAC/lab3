@@ -38,7 +38,7 @@ sap.ui.define([
             const oNewBooking = this.oNewBookingModel.getData().booking;
             oNewBooking.flightDate = new Date(oNewBooking.flightDate).toISOString();
 
-            this.post(`/core/api/booking`, oNewBooking)
+            this.post(`https://booking-darius.cfapps.us10.hana.ondemand.com/bookings`, oNewBooking)
                 .then(oResponse => {
                     this.getRouter().navTo("booking", { bookingId: oNewBooking.id });
                 })

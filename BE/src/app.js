@@ -1,55 +1,95 @@
 import bodyParser from 'body-parser';
 import express from 'express';
-import passport from 'passport';
-import routes from './routes/bookingsRoutes';
-import {StatusCodes, ReasonPhrases} from 'http-status-codes';
-import { log, setupLogging, logNetwork} from './utils/logging.js';
 import cors from 'cors';
+
+const app = express();
+
+const bookings = [];
 
 export const initializeApp = () => {
 
-    setupLogging();
-
     const app = express();
+    // app.use(bodyParser.urlencoded({
+    //     extended: true
+    // }));
 
-    app.use(bodyParser.urlencoded({
-        extended: true
-    }));
-
-    app.use(logNetwork);
-
-    app.use(cors());
-
+    app.use(cors())
     app.use(bodyParser.json());
 
-    app.use(passport.initialize());
+    app.get('/', (req, res) => res.send(req.headers)
 
-    app.get('/', (req, res) => res.send('App is working'));
+    );
 
-    app.use('/api', routes);
+    app.post('/bookings', (req, res) => addBooking(req, res));
 
-    app.use((req, res) => {
-        res.status(StatusCodes.NOT_FOUND).send({
-            message: ReasonPhrases.NOT_FOUND,
-            statusCode: StatusCodes.NOT_FOUND,
-        });
-    });
 
-    app.use(_logErrors);
-    app.use(_errorHandler);
+    app.get('/bookings', (req, res) => res.send(bookings));
 
-    log.info('App successfully bootstrapped');
+
+    app.get('/bookings/:id', (req, res) => getBooking(req, res));
+
+    app.put('/bookings/:id', (req, res) => updateBooking(req, res));
+
+    app.delete('/bookings/:id', (req, res) => deleteBooking(req, res));
+
+
+    // app.use((req, res) => {
+    //     res.status(StatusCodes.NOT_FOUND).send({
+    //         message: ReasonPhrases.NOT_FOUND,
+    //         statusCode: StatusCodes.NOT_FOUND,
+    //     });
+    // });
+    // app.use(_logErrors);
+    // app.use(_errorHandler);
+
+    console.log('App successfully bootstrapped');
 
     return app;
 }
 
-function _logErrors(err, req, res, next) {
-    log.error(`ERROR occurred for request: ${req.originalUrl}`);
-    log.error(err);
-    next(err);
+function deleteBooking(req, res) {
+    const id = req.params.id;
+
+    const index = bookings.findIndex(booking => booking.id == id);
+
+    const deleted = bookings.splice(index, 1);
+    res.send(deleted);
+
+}
+function updateBooking(req, res) {
+    const id = req.params.id;
+
+    const bookingNou = req.body;
+
+    const index = bookings.findIndex(booking => booking.id == id);
+
+    bookings[index] = bookingNou;
+
+    res.send(bookings[index]);
+
+}
+function getBooking(req, res) {
+    const id = req.params.id;
+    console.log(id)
+    const booking = bookings.find(booking => booking.id == id)
+    if (booking) {
+        res.send(booking);
+
+    } else {
+        res.sendStatus(404)
+    }
 }
 
-function _errorHandler(err, req, res, next) {
-    res.status(err.code? err.code : StatusCodes.INTERNAL_SERVER_ERROR);
-    res.send(err.message? err.message : err);
+function addBooking(req, res) {
+
+    const booking = req.body;
+    const id = req.body.id;
+
+    if (id) {
+        bookings.push(booking);
+        res.send(booking);
+    } else {
+        res.sendStatus(404);
+    }
+
 }
