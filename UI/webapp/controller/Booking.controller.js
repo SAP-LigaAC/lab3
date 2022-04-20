@@ -13,7 +13,7 @@ sap.ui.define([
 
         onPatternMatched: function (oEvent) {
             this._resetBookingModel();
-            
+
             const oBookingPage = this.byId("idBookingPage");
             oBookingPage.setBusy(true);
 
@@ -46,6 +46,10 @@ sap.ui.define([
                     "PhoneNumber": null
                 }
             }`);
+        },
+
+        onPressNavButton: function (oEvent) {
+            this.getRouter().navTo("bookings");
         }
     });
 });

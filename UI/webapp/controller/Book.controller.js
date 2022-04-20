@@ -49,6 +49,10 @@ sap.ui.define([
                 .finally(() => {
                     oBookPage.setBusy(false);
                 });
+        },
+
+        onPressNavButton : function(oEvent) {
+            this.getRouter().navTo("bookings");
         }
     });
 });
