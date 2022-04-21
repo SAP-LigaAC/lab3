@@ -1,0 +1,17 @@
+{
+    "authenticationMethod": "route",
+    "routes": [
+        {
+            "source": "^/core(.*)$",
+            "target": "$1",
+            "destination": "bookings",
+            "authenticationType": "xsuaa"
+        },
+        {
+            "source": "^(.*)$",
+            "target": "$1",
+            "service": "html5-apps-repo-rt",
+            "authenticationType": "xsuaa"
+        }
+    ]
+}

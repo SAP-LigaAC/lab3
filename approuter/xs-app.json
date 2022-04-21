@@ -1,6 +1,6 @@
 {
-	"authenticationMethod": "route",
-	"routes": [
+  "authenticationMethod": "route",
+  "routes": [
     {
       "source": "^/core(.*)$",
       "target": "$1",

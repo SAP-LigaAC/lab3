@@ -4,7 +4,6 @@ version: 1.0.0
 description: "flight-bookings REST example app"
 parameters:
   enable-parallel-deployments: true
-  deploy_mode: html5-repo
 
 build-parameters:
   before-all:
@@ -65,6 +64,7 @@ modules:
     requires:
       - name: bookings-uaa # XSUAA instance
       - name: flight-bookings-api
+      - name: html5_runtime      
 
   # --------------------- BE core app MODULE ------------------------
   - name: flight-bookings-be
@@ -119,7 +119,7 @@ modules:
     type: com.sap.html5.application-content
     path: UI/deployer
     requires:
-      - name: flight-bookings-ui-host
+      - name: html5_repo_host
     build-parameters:
       requires:
         - name: flight-bookings-ui
@@ -173,7 +173,13 @@ resources:
       service: hana
       service-plan: hdi-shared
 
-  - name: flight-bookings-ui-host
+  - name: html5_runtime
+    parameters:
+      service-plan: app-runtime
+      service: html5-apps-repo
+    type: org.cloudfoundry.managed-service
+
+  - name: html5_repo_host
     parameters:
       service-plan: app-host
       service: html5-apps-repo

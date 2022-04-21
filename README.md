@@ -85,6 +85,11 @@ Assign a role to your user.
 - Change your user role and check the impact
 - Create a new endpoint and a new role
   - i.e for deleting a specific booking a 'Manger' role is required
+- UI: Remove the Passenger First Name and Passenger Last Name columns from the Bookings table, and add the Passenger Email column instead.
+- UI: Customize the title of the table so that it contains the total number of bookings. (EX: Bookings (10))
+- UI: Format the booking date and flight date values from the booking detail page form.
+- UI: Display the error message received from the backend application in case is created a booking with invalid values.
+- Full Stack: Implement booking deletion feature.
 #### Npm dependecies used by the app
 
 - https://www.npmjs.com/package/express
@@ -96,11 +101,9 @@ Assign a role to your user.
 - https://www.npmjs.com/package/@sap/hana-client
 - https://www.npmjs.com/package/@sap/xsenv
 - https://www.npmjs.com/package/@sap/xssec
--
 
 ### Documentation
 
-https://blogs.sap.com/2020/04/03/sap-application-router/
-
-
-
+- https://blogs.sap.com/2020/04/03/sap-application-router
+- https://blogs.sap.com/2021/08/23/what-is-sapui5
+- https://ui5.sap.com
