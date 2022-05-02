@@ -63,10 +63,14 @@ sap.ui.define([
             if (!this.validateEmail(booking.emailAddress)) {
                 this.getView().getModel("valueStateModel").setProperty('/emailError', "Error");
                 isValidBooking = false;
+            } else {
+                this.getView().getModel("valueStateModel").setProperty('/emailError', "None");
             }
             if (!this.validatePhone(booking.phoneNumber)) {
                 this.getView().getModel("valueStateModel").setProperty('/phoneError', "Error");
                 isValidBooking = false;
+            } else {
+                this.getView().getModel("valueStateModel").setProperty('/phoneError', "None");
             }
 
             return isValidBooking;
