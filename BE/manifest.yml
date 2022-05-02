@@ -1,4 +1,4 @@
 applications:
-    - name: booking-calin
+    - name: booking-darius
       memory: 512M
       disk_quota: 512M

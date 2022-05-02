@@ -1,6 +1,6 @@
 applications:
-  - name: calin-UI
-    host: calin-UI
+  - name: darius-UI
+    host: darius-UI
     buildpack: staticfile_buildpack
     disk_quota: 125M
     timeout: 180

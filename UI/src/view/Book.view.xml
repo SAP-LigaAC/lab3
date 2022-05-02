@@ -20,9 +20,9 @@
                     <Label text="{i18n>lastNameLabel}"/>
                     <Input required="true" value="{newBookingModel>/booking/lastName}"/>
                     <Label text="{i18n>emailAddressLabel}"/>
-                    <Input required="true" value="{newBookingModel>/booking/emailAddress}"/>
+                    <Input required="true" value="{newBookingModel>/booking/emailAddress}" valueState="{valueStateModel>/emailError}"/>
                     <Label text="{i18n>phoneNumberLabel}"/>
-                    <Input required="true" type="Number" value="{newBookingModel>/booking/phoneNumber}"/>
+                    <Input required="true" type="Number" value="{newBookingModel>/booking/phoneNumber}" valueState="{valueStateModel>/phoneError}"/>
                 </f:content>
             </f:SimpleForm>
         </content>

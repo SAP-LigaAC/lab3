@@ -25,7 +25,7 @@ sap.ui.define([
         },
 
         getBookingDetails: function (oBookingPage) {
-            this.read(`https://booking-calin.cfapps.us10.hana.ondemand.com/bookings/${this.sBookingId}`)
+            this.read(`https://booking-darius.cfapps.us10.hana.ondemand.com/bookings/${this.sBookingId}`)
                 .then(oResponse => {
                     this.oBookingModel.setProperty("/booking", oResponse);
                 })
@@ -64,7 +64,7 @@ sap.ui.define([
             const oBookingPage = this.byId("idBookingPage");
             oBookingPage.setBusy(true);
 
-            this.delete(`https://booking-calin.cfapps.us10.hana.ondemand.com/bookings/${this.sBookingId}`) 
+            this.delete(`https://booking-darius.cfapps.us10.hana.ondemand.com/bookings/${this.sBookingId}`) 
             .then(() => {
                 oBookingPage.setBusy(false);
             })
@@ -86,7 +86,7 @@ sap.ui.define([
             oBookingPage.setBusy(true);
 
             const dataToBeSent = this.oBookingModel.getProperty("/booking");
-            this.put(`https://booking-calin.cfapps.us10.hana.ondemand.com/bookings/${this.sBookingId}`, dataToBeSent)
+            this.put(`https://booking-darius.cfapps.us10.hana.ondemand.com/bookings/${this.sBookingId}`, dataToBeSent)
             .then(() => {
                 this.onCancelEditPress();
             })
