@@ -90,8 +90,12 @@ sap.ui.define([
 			return this.AjaxClient.post(url, body);
 		},
 
+		put: function (url, body) {
+			return this.AjaxClient.put(url, body);
+		},
+
 		delete: function (url, body) {
-			return this.AjaxClient.makeAJAXCall(url, body);
+			return this.AjaxClient.delete(url, body);
 		}
 	});
 

@@ -3,7 +3,7 @@
     xmlns="sap.m"
     xmlns:f="sap.ui.layout.form"
     xmlns:core="sap.ui.core">
-    <Page id="idBookPage" title="{i18n>bookPageTitle}" titleAlignment="Center" floatingFooter="true" busyIndicatorDelay="0">
+    <Page id="idBookPage" title="{i18n>bookPageTitle}" titleAlignment="Center" floatingFooter="true" busyIndicatorDelay="0" showNavButton="true" navButtonPress="onNavHomePress">
         <content>
             <f:SimpleForm editable="true" layout="ResponsiveGridLayout" columnsXL="1" columnsL="1" columnsM="1" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="1" emptySpanXL="3" emptySpanL="3" emptySpanM="3" emptySpanS="1">
                 <f:content>

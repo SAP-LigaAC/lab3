@@ -15,7 +15,7 @@ sap.ui.define([
 			const oBookingsPage = this.byId("idBookingsPage");
 			oBookingsPage.setBusy(true);
 
-			this.read("https://booking-darius.cfapps.us10.hana.ondemand.com/bookings")
+			this.read("https://booking-calin.cfapps.us10.hana.ondemand.com/bookings")
 				.then(oResponse => {
 					this.oBookingsModel.setProperty("/bookings", oResponse);
 				})
@@ -35,8 +35,12 @@ sap.ui.define([
 			this.getRouter().navTo("booking", { bookingId: oBooking.id });
 		},
 
-		onPressBookNow: function (oEvent) {
+		onPressBookNow: function () {
 			this.getRouter().navTo("book");
+		},
+
+		onNavHomePress: function () {
+			this.getRouter().navTo("bookings");
 		}
 	});
 });
