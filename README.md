@@ -28,6 +28,34 @@ If the `git clone` command fails, then you will have to:
   - manually download the zip file from repository home page
   - decompress the zip File
 
+### SAP BTP Security (Authentication and Authorization)
+
+SAP BTP distinguishes between platform users (for global accounts and subaccounts) and business users (for the applications).
+
+SAP ID service is the default identity provider for both, but custom ID providers can be configured as well.
+
+SAP ID service provides:
+  - A central user store
+  - A Single Sign-On (SSO) service. It enables users to log on once and get access to all your applications.
+
+<br><br>
+<img width="451" alt="image" src="https://help.sap.com/doc/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/loiodb7239ae78bd4c51a37fb7fedc7d0e76_LowRes.png">
+<br><br>
+
+Account administrators ensure that users can only access their dedicated subaccount by making sure that there is a dedicated trust relationship between the identity providers and the respective subaccounts. Service provider (SP) agrees to trust the identity provider to authenticate users. Identity provider (IdP) authenticates users and provides to service providers an authentication assertion (SAML assertion)that indicates a user has been authenticated.
+The Security Assertion Markup Language (SAML) protocol is an open-standard, XML-based framework for authentication and authorization between two entities without a password.
+
+A role-based authorization concept ensures that only authorized users are able to access the app endpoints.
+Developers configure and deploy application-based security artifacts containing authorizations, and administrators assign these authorizations using the SAP CF cockpit.
+
+### OAuth2 authentication
+
+The authentication for our application relies on the usage of the OAuth 2.0 protocol, the industry standard for providing secure access to web APIs, allowing applications to access users' data without compromising security.
+Generally, OAuth provides clients a "temporary secured delegated access" to server resources on behalf of a resource owner. It specifies a process for resource owners to authorize third-party access to their server resources without providing credentials. Designed specifically to work with Hypertext Transfer Protocol (HTTP), OAuth essentially allows access tokens to be issued to third-party clients by an authorization server, with the approval of the resource owner. The third party then uses the access token to access the protected resources hosted by the resource server.
+User Account and Authentication (UAA) server issue for the authenticated user's a so-called OAuth access token. The implementation uses as access token a JSON web token (JWT), which is a signed text-based token formatted according to the JSON syntax.
+
+To secure the application endpoints we are using the SAP Node-security libraries together with two main components: the XSUAA service and the application router.
+The XSUAA plays the role of an OAuth authorization service whereas the application router plays the role of an OAuth client.
 
 ### 3. App modules and resources
 LAB3 application is an example of a cloud Multi Target Application.
@@ -49,7 +77,7 @@ App new modules introduced in LAB3:
 <br><br>
 
 <br><br>
-<img width="451" alt="image" src="https://blogs.sap.com/wp-content/uploads/2018/12/Untitled-16.png">
+<img width="451" alt="image" src="https://user-images.githubusercontent.com/102019852/166631020-0250a111-71d9-4723-b0c0-7b2f24d424c8.png">
 <br><br>
 
 
@@ -91,7 +119,9 @@ Assign a role to your user.
 - https://www.npmjs.com/package/express-validator
 - https://www.npmjs.com/package/body-parser
 - https://www.npmjs.com/package/cf-nodejs-logging-support
+- https://www.npmjs.com/package/cors
 - https://www.npmjs.com/package/http-status-codes
+- https://www.npmjs.com/package/passport
 - https://www.npmjs.com/package/@sap/approuter
 - https://www.npmjs.com/package/@sap/hana-client
 - https://www.npmjs.com/package/@sap/xsenv
@@ -100,7 +130,14 @@ Assign a role to your user.
 
 ### Documentation
 
-https://blogs.sap.com/2020/04/03/sap-application-router/
+- [SAP BTP Security](https://help.sap.com/docs/BTP/65de2977205c403bbc107264b8eccf4b/e129aa20c78c4a9fb379b9803b02e5f6.html "SAP BTP Security")
+- [OAUTH2](https://oauth.net/2/ "Oauth2")
+  - https://en.wikipedia.org/wiki/OAuth
+  - https://auth0.com/docs/authenticate/protocols/oauth
+- [SAP Application Router](https://help.sap.com/docs/BTP/65de2977205c403bbc107264b8eccf4b/01c5f9ba7d6847aaaf069d153b981b51.html "SAP App router")
+  - [What is SAP Application Router](https://blogs.sap.com/2020/04/03/sap-application-router/ "SAP App router")
+- [SAP Authorization and Trust Management Service](https://help.sap.com/docs/BTP/65de2977205c403bbc107264b8eccf4b/6373bb7a96114d619bfdfdc6f505d1b9.html "XSUAA")
+
 
 
 
