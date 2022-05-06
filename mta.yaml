@@ -109,6 +109,8 @@ resources:
             description: "Bookings app read role"
           - name: $XSAPPNAME.write
             description: "Bookings app write role"
+        authorities:
+          - $XSAPPNAME.write
         role-templates:
           - name: Admin
             description: "Admin role template"
