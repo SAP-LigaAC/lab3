@@ -83,7 +83,7 @@ sap.ui.define([
 		},
 
 		read: function (url, queryParams) {
-			return this.AjaxClient.get(url, queryParams);
+			return this.AjaxClient.makeAJAXCall("GET", url, queryParams);
 		},
 
 		post: function (url, body) {

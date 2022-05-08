@@ -4,47 +4,15 @@ sap.ui.define(
     "use strict";
 
     return {
-      get: function (sUrl, queryParams) {
+      makeAJAXCall: function (sMethodType, sUrl, oData) {
         return new Promise(function (resolve, reject) {
-          $.ajax({
+          jQuery.ajax({
             url: sUrl,
-            type: "GET",
-            data: queryParams,
+            type: sMethodType,
+            contentType: sMethodType !== "GET" || sMethodType !== "DELETE" ? "application/json; charset=utf-8" : "",
+            data: sMethodType !== "GET" || sMethodType !== "DELETE" ? JSON.stringify(oData) : oData,
             success: function (data) {
               resolve(data);
-            },
-            error: function (xhr, status) {
-              reject(xhr, status);
-            }
-          });
-        });
-      },
-
-      makeAJAXCall: function (sMethodType, sUrl, oBody) {
-        return new Promise(function (resolve, reject) {
-          var tokenUrl = "/";
-          $.ajax({
-            url: tokenUrl,
-            type: "GET",
-            beforeSend: function (jqXHR) {
-              jqXHR.setRequestHeader("X-CSRF-Token", "Fetch");
-            },
-            success: function (data, textStatus, jqXHR) {
-              jQuery.ajax({
-                url: sUrl,
-                type: sMethodType,
-                contentType: "application/json; charset=utf-8",
-                data: JSON.stringify(oBody),
-                beforeSend: function (jqXHR1) {
-                  jqXHR1.setRequestHeader("X-CSRF-Token", jqXHR.getResponseHeader("X-CSRF-Token"));
-                },
-                success: function (data) {
-                  resolve(data);
-                },
-                error: function (xhr, status) {
-                  reject(xhr, status);
-                }
-              });
             },
             error: function (xhr, status) {
               reject(xhr, status);

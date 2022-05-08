@@ -9,6 +9,7 @@
   "main": "src/server.js",
   "scripts": {
     "start": "node --experimental-specifier-resolution=node src/server.js",
+    "start-ui": "cd UI && npm run start",
     "build": "mbt build -t mta_archives --mode verbose",
     "deploy-cloud": "npm run build && cf deploy mta_archives/flight-bookings_1.0.0.mtar",
     "deploy-cloud-approuter": "npm run build && cf deploy mta_archives/flight-bookings_1.0.0.mtar -m flight-bookings-approuter",

@@ -5,7 +5,8 @@
       "source": "^/core(.*)$",
       "target": "$1",
       "destination": "bookings",
-      "authenticationType": "xsuaa"
+      "authenticationType": "xsuaa",
+      "csrfProtection": false
     }
   ]
 }
