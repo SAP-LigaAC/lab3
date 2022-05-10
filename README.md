@@ -131,6 +131,9 @@ Assign a role to your user.
 - https://www.npmjs.com/package/@sap/hana-client
 - https://www.npmjs.com/package/@sap/xsenv
 - https://www.npmjs.com/package/@sap/xssec
+- https://www.npmjs.com/package/@ui5/cli
+- https://www.npmjs.com/package/ui5-middleware-livereload
+- https://www.npmjs.com/package/ui5-middleware-simpleproxy
 
 ### Documentation
 
