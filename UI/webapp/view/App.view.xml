@@ -1,9 +1,4 @@
-<mvc:View
-	xmlns:mvc="sap.ui.core.mvc"
-	controllerName="sap.ui.starter.controller.App"
-	displayBlock="true"
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="flight.bookings.ui.controller.App" displayBlock="true"
 	xmlns="sap.m">
-	<App id="app"
-		 busy="{appView>/busy}"
-		 busyIndicatorDelay="{appView>/delay}"/>
+	<App id="app"/>
 </mvc:View>
