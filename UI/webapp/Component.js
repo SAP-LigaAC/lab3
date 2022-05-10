@@ -1,12 +1,9 @@
 sap.ui.define([
 	'sap/ui/core/UIComponent',
-	'sap/ui/model/resource/ResourceModel',
-	'sap/ui/starter/model/models',
-	'sap/ui/Device'
-], function (UIComponent, ResourceModel, models, Device) {
+], function (UIComponent) {
 	"use strict";
 
-	return UIComponent.extend("sap.ui.starter.Component", {
+	return UIComponent.extend("flight.bookings.ui.Component", {
 
 		metadata: {
 			manifest: "json"
@@ -19,29 +16,11 @@ sap.ui.define([
 		 * @override
 		 */
 		init: function () {
-
 			// call the base component's init function
 			UIComponent.prototype.init.apply(this, arguments);
 
-			// set the device model
-			this.setModel(models.createDeviceModel(), "device");
-
 			// create the views based on the url/hash
 			this.getRouter().initialize();
-
-			// attach handlers for validation errors
-			sap.ui.getCore().attachValidationError(function (evt) {
-				var control = evt.getParameter("element");
-				if (control && control.setValueState) {
-					control.setValueState("Error");
-				}
-			});
-			sap.ui.getCore().attachValidationSuccess(function (evt) {
-				var control = evt.getParameter("element");
-				if (control && control.setValueState) {
-					control.setValueState("None");
-				}
-			});
 		}
 	});
 

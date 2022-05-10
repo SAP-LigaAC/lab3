@@ -1,19 +1,7 @@
 sap.ui.define([
-	'sap/ui/starter/controller/BaseController',
-	'sap/ui/model/json/JSONModel'
+	'flight/bookings/ui/controller/BaseController'
 ], function (BaseController, JSONModel) {
 	"use strict";
 
-	return BaseController.extend("sap.ui.starter.controller.App", {
-
-		onInit: function () {
-			var oViewModel = new JSONModel({
-				busy: false,
-				delay: 0
-			});
-
-			this.setModel(oViewModel, "appView");
-		}
-	});
-
+	return BaseController.extend("flight.bookings.ui.controller.App", {});
 });

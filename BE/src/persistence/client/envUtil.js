@@ -4,7 +4,7 @@ import fs from "fs";
 
 xsenv.loadEnv('default-env.json');
 
-const defaultEnvFile = "./config/default-env.json";
+const defaultEnvFile = "./BE/config/default-env.json";
 if (fs.existsSync(defaultEnvFile)) {
     xsenv.loadEnv(defaultEnvFile);
 } else {

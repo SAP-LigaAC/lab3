@@ -64,6 +64,7 @@ modules:
     requires:
       - name: bookings-uaa # XSUAA instance
       - name: flight-bookings-api
+      - name: html5_runtime      
 
   # --------------------- BE core app MODULE ------------------------
   - name: flight-bookings-be
@@ -94,6 +95,37 @@ modules:
       - name: flight-bookings-api # required by consumers of the app (e.g. approuter)
         properties:
           srv-url: ${default-url}
+
+
+  # --------------------- UI app MODULE ------------------------
+  - name: flight-bookings-ui
+    # ------------------------------------------------------------
+    type: html5
+    path: UI
+    parameters:
+        disk-quota: 256M
+        memory: 256M
+        host: ${org}-${space}-flight-bookings-ui.${default-domain}
+        buildpacks:
+          - staticfile_buildpack
+    build-parameters:
+        builder: custom
+        commands:
+          - npm install
+          - npm run build
+        supported-platforms: []
+        build-result: dist
+  - name: flight-bookings-ui-deployer
+    type: com.sap.html5.application-content
+    path: UI/deployer
+    requires:
+      - name: html5_repo_host
+    build-parameters:
+      requires:
+        - name: flight-bookings-ui
+          artifacts:
+            - './*'
+          target-path: resources/flight-bookings-ui
 
 resources:
   - name: bookings-uaa
@@ -142,3 +174,15 @@ resources:
     parameters:
       service: hana
       service-plan: hdi-shared
+
+  - name: html5_runtime
+    parameters:
+      service-plan: app-runtime
+      service: html5-apps-repo
+    type: org.cloudfoundry.managed-service
+
+  - name: html5_repo_host
+    parameters:
+      service-plan: app-host
+      service: html5-apps-repo
+    type: org.cloudfoundry.managed-service

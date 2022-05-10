@@ -113,6 +113,11 @@ Assign a role to your user.
 - Change your user role and check the impact
 - Create a new endpoint and a new role
   - i.e for deleting a specific booking a 'Manger' role is required
+- UI: Remove the Passenger First Name and Passenger Last Name columns from the Bookings table, and add the Passenger Email column instead.
+- UI: Customize the title of the table so that it contains the total number of bookings. (EX: Bookings (10))
+- UI: Format the booking date and flight date values from the booking detail page form.
+- UI: Display the error message received from the backend application in case is created a booking with invalid values.
+- Full Stack: Implement booking deletion feature.
 #### Npm dependecies used by the app
 
 - https://www.npmjs.com/package/express
@@ -126,7 +131,9 @@ Assign a role to your user.
 - https://www.npmjs.com/package/@sap/hana-client
 - https://www.npmjs.com/package/@sap/xsenv
 - https://www.npmjs.com/package/@sap/xssec
--
+- https://www.npmjs.com/package/@ui5/cli
+- https://www.npmjs.com/package/ui5-middleware-livereload
+- https://www.npmjs.com/package/ui5-middleware-simpleproxy
 
 ### Documentation
 
@@ -137,7 +144,5 @@ Assign a role to your user.
 - [SAP Application Router](https://help.sap.com/docs/BTP/65de2977205c403bbc107264b8eccf4b/01c5f9ba7d6847aaaf069d153b981b51.html "SAP App router")
   - [What is SAP Application Router](https://blogs.sap.com/2020/04/03/sap-application-router/ "SAP App router")
 - [SAP Authorization and Trust Management Service](https://help.sap.com/docs/BTP/65de2977205c403bbc107264b8eccf4b/6373bb7a96114d619bfdfdc6f505d1b9.html "XSUAA")
-
-
-
-
+- [SAPUI5 Documentaion](https://ui5.sap.com)
+  - [What is SAPUI5? ](https://blogs.sap.com/2021/08/23/what-is-sapui5)
