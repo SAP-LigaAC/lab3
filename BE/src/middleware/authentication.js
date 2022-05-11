@@ -4,18 +4,18 @@ import { log } from '../utils/logging';
 
 function processJwt(req, res, next, scope) {
 
-    const authOptions = config.has('jwt.options') ? config.get('jwt.options') : {session: false};
+    const authOptions = config.has('jwt.options') ? config.get('jwt.options') : { session: false };
     const strategy = config.has('jwt.strategy') ? config.get('jwt.strategy') : 'JWT';
 
     return passport.authenticate(strategy, authOptions, (err, user, securityContext) => {
 
         if (err || !user) {
             return handleError(res, 401)
-         }
+        }
 
         const validScope = securityContext && securityContext.checkLocalScope(scope);
 
-        if (!validScope ) {
+        if (!validScope) {
             return handleError(res, 403);
         }
 
@@ -24,13 +24,18 @@ function processJwt(req, res, next, scope) {
 }
 
 function handleError(res, code) {
-    const response = {code, message:'Authorization failed.'};
+    const response = { code, message: 'Authorization failed.' };
     log.error(response);
     return res.status(code).send(response);
 }
 
 const authentication = (scope) => {
-        return (req, res, next) => processJwt(req, res, next, scope);
+    return (req, res, next) => {
+        if (process.env.NODE_ENV === 'development') {
+            return next();
+        }
+        return processJwt(req, res, next, scope);
     }
+}
 
 export default authentication;

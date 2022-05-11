@@ -2,20 +2,18 @@
 
 sap.ui.define([
 	'sap/ui/core/mvc/Controller',
-	'sap/ui/core/routing/History'
-], function (Controller, History) {
+	'sap/ui/core/routing/History',
+	'sap/m/MessageBox',
+	'flight/bookings/ui/utils/AjaxClient',
+	'flight/bookings/ui/utils/Formatter',
+], function (Controller, History, MessageBox, AjaxClient, Formatter) {
 	"use strict";
 
-	return Controller.extend("sap.ui.starter.controller.BaseController", {
+	return Controller.extend("flight.bookings.ui.controller.BaseController", {
 
-		/**
-		 * Convenience method for accessing the event bus.
-		 * @public
-		 * @returns {sap.ui.core.EventBus} the event bus for this component
-		 */
-		getEventBus: function () {
-			return this.getOwnerComponent().getEventBus();
-		},
+		MessageBox: MessageBox,
+		AjaxClient: AjaxClient,
+		Formatter: Formatter,
 
 		/**
 		 * Convenience method for accessing the router.
@@ -78,10 +76,22 @@ sap.ui.define([
 			}
 		},
 
-		getI18nMessage : function (sI18n) {
+		getI18nMessage: function (sI18n, arg) {
 			var oBundle = this.getView().getModel("i18n").getResourceBundle();
-			var sMsg = oBundle.getText(sI18n);
+			var sMsg = oBundle.getText(sI18n, arg);
 			return sMsg;
+		},
+
+		read: function (url, queryParams) {
+			return this.AjaxClient.makeAJAXCall("GET", url, queryParams);
+		},
+
+		post: function (url, body) {
+			return this.AjaxClient.makeAJAXCall("POST", url, body);
+		},
+
+		delete: function (url, body) {
+			return this.AjaxClient.makeAJAXCall("DELETE", url, body);
 		}
 	});
 
