@@ -13,9 +13,9 @@
                     <Label text="{i18n>bookingStatusLabel}"/>
                     <Text text="{bookingModel>/booking/BookingStatus}"/>
                     <Label text="{i18n>bookingDateLabel}"/>
-                    <Text text="{bookingModel>/booking/BookingDate}"/>
+                    <Text text="{parts: [{path: 'bookingModel>/booking/BookingDate'}, {value: 'MMM d, yyyy'}], formatter: '.Formatter.formatDateTime'}" />
                     <Label text="{i18n>flightDateLabel}"/>
-                    <Text text="{bookingModel>/booking/FlightDate}"/>
+                    <Text text="{parts: [{path: 'bookingModel>/booking/FlightDate'}, {value: 'MMM d, yyyy'}], formatter: '.Formatter.formatDateTime'}" />
                     <Label text="{i18n>flightDestinationLabel}"/>
                     <Text text="{bookingModel>/booking/FlightDestination}"/>
                     <core:Title text="{i18n>passengerSectionTitle}"/>

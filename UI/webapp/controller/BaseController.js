@@ -76,9 +76,9 @@ sap.ui.define([
 			}
 		},
 
-		getI18nMessage: function (sI18n) {
+		getI18nMessage: function (sI18n, arg) {
 			var oBundle = this.getView().getModel("i18n").getResourceBundle();
-			var sMsg = oBundle.getText(sI18n);
+			var sMsg = oBundle.getText(sI18n, arg);
 			return sMsg;
 		},
 

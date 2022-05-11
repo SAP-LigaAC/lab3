@@ -43,15 +43,14 @@ sap.ui.define([
                     this.getRouter().navTo("booking", { bookingId: oNewBooking.id });
                 })
                 .catch(oError => {
-                    const sGenericErrorMessage = this.getI18nMessage("generic.error.message");
-                    this.MessageBox.error(sGenericErrorMessage);
+                    this.MessageBox.error(oError.responseText);
                 })
                 .finally(() => {
                     oBookPage.setBusy(false);
                 });
         },
 
-        onPressNavButton : function(oEvent) {
+        onPressNavButton: function (oEvent) {
             this.getRouter().navTo("bookings");
         }
     });

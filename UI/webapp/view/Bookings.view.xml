@@ -14,11 +14,11 @@
 			</uxap:ObjectPageDynamicHeaderTitle>
 		</uxap:headerTitle>
 		<uxap:sections>
-			<uxap:ObjectPageSection titleUppercase="false" title="{i18n>bookingsSectionTitle}">
+			<uxap:ObjectPageSection titleUppercase="false" title="{i18n>bookingsSectionTitle} ({bookingsModel>/bookingsCount})">
 				<uxap:subSections>
 					<uxap:ObjectPageSubSection>
 						<uxap:blocks>
-							<Table id="idBookingsTable" items="{path: 'bookingsModel>/bookings'}" itemPress="onPressTableItem">
+							<Table id="idBookingsTable" items="{path: 'bookingsModel>/bookings'}" itemPress="onPressTableItem" mode="Delete" delete="onDeleteTableItem">
 								<columns>
 									<Column width="10em">
 										<Text text="{i18n>idTableColumn}" />
@@ -36,10 +36,7 @@
 										<Text text="{i18n>flightDestinationTableColumn}" />
 									</Column>
 									<Column>
-										<Text text="{i18n>passengerFirstNameTableColumn}" />
-									</Column>
-									<Column>
-										<Text text="{i18n>passengerLastNameTableColumn}" />
+										<Text text="{i18n>passengerEmailColumn}" />
 									</Column>
 								</columns>
 								<items>
@@ -50,8 +47,7 @@
 											<Text text="{parts: [{path: 'bookingsModel>BookingDate'}, {value: 'MMM d, yyyy'}], formatter: '.Formatter.formatDateTime'}" />
 											<Text text="{parts: [{path: 'bookingsModel>FlightDate'}, {value: 'MMM d, yyyy'}], formatter: '.Formatter.formatDateTime'}" />
 											<Text text="{bookingsModel>FlightDestination}" />
-											<Text text="{bookingsModel>FirstName}" />
-											<Text text="{bookingsModel>LastName}" />
+											<Text text="{bookingsModel>EmailAddress}" />
 										</cells>
 									</ColumnListItem>
 								</items>
